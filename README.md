@@ -204,7 +204,7 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 
 
 # Technologies
-- Microsoft Visual Studio Code
+- **Microsoft Visual Studio Code**
 - **Frontend**: 
   - HTML
   - CSS (Bootstrap for styling)
