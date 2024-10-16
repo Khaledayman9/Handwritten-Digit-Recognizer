@@ -52,7 +52,7 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 ![error3](https://github.com/user-attachments/assets/2824a19c-2dab-4b86-8d90-9f137fc75699)
 
 ## Some Unique Test Cases:
-- Some digiits can be confusing to humans and Deep learning models like this one, you cant verify whether the person typed 1 or 7. 
+- Certain digits, like 1 and 7, can be difficult to distinguish for both humans and deep learning models. This can lead to ambiguity in predictions, making it challenging to verify the correct input.
 ![error](https://github.com/user-attachments/assets/1ec8c4cf-9fdd-4845-9efa-729738ad4d22)
 
 
@@ -62,6 +62,82 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 - **Real-time Prediction**: Click a button to predict the digit drawn or uploaded.
 - **Responsive Design**: The application is designed to work on various screen sizes.
 
+
+# CNN Model
+
+## Model Layers
++--------------------------+
+|      Input Layer          |
+|   (28x28x1 grayscale)     |
++--------------------------+
+            |
+            V
++--------------------------+
+|    Conv2D Layer (32)      |
+|  32 filters, 3x3 kernel   |
+|  Activation: ReLU         |
++--------------------------+
+            |
+            V
++--------------------------+
+|    MaxPooling2D Layer     |
+|  Pool Size: 2x2           |
++--------------------------+
+            |
+            V
++--------------------------+
+|    Conv2D Layer (64)      |
+|  64 filters, 3x3 kernel   |
+|  Activation: ReLU         |
++--------------------------+
+            |
+            V
++--------------------------+
+|    MaxPooling2D Layer     |
+|  Pool Size: 2x2           |
++--------------------------+
+            |
+            V
++--------------------------+
+|    Conv2D Layer (128)     |
+|  128 filters, 3x3 kernel  |
+|  Activation: ReLU         |
++--------------------------+
+            |
+            V
++--------------------------+
+|    MaxPooling2D Layer     |
+|  Pool Size: 2x2           |
++--------------------------+
+            |
+            V
++--------------------------+
+|    Flatten Layer          |
+|  Output: 1280 units       |
++--------------------------+
+            |
+            V
++--------------------------+
+|    Dense Layer (128)      |
+|  Activation: ReLU         |
++--------------------------+
+            |
+            V
++--------------------------+
+|    Dropout Layer (0.5)    |
+|  50% Neurons Dropped      |
++--------------------------+
+            |
+            V
++--------------------------+
+|    Dense Output Layer     |
+|  10 units (Softmax)       |
++--------------------------+
+            |
+            V
++--------------------------+
+|    Output (Digits 0-9)    |
++--------------------------+
 
  
 # Installation
