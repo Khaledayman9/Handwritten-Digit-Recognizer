@@ -2,7 +2,7 @@
 A web application that recognizes handwritten digits using a deep learning model. Users can either draw digits on a canvas or upload images of handwritten digits for prediction. The application uses a Flask backend and a TensorFlow model for processing.
 
 # Layout
-
+![](https://github.com/Khaledayman9/Handwritten-Digit-Recognizer/blob/main/Layout.gif)
 
 # Features
 - **Drawing Canvas**: Users can draw digits directly on a canvas.
