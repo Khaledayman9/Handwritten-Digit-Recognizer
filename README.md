@@ -63,9 +63,22 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 - **Responsive Design**: The application is designed to work on various screen sizes.
 
 
-# CNN Model
+# Model Details
+**- The handwritten digit recognizer is built using a Convolutional Neural Network (CNN), which is well-suited for image recognition tasks due to its ability to capture spatial hierarchies in images. The network is trained on the MNIST dataset, which contains 28x28 grayscale images of handwritten digits (0-9). Here’s a detailed breakdown of the model:**
 
-## Model Layers
+## 1. Input Preprocessing
+- Normalization: The pixel values of the images are scaled to a range of 0 to 1 by dividing by 255. This improves model performance and speeds up convergence.
+- Reshaping: The images are reshaped from (28, 28) to (28, 28, 1) to include the channel dimension (1 channel for grayscale).
+
+## 2. Data Augmentation
+- ImageDataGenerator is used to artificially expand the training set by applying random transformations, helping the model generalize better:
+  - Rotation: Randomly rotates the image up to 15 degrees.
+  - Shifting: Shifts the image horizontally or vertically by 20% of the image size.
+  - Zooming: Randomly zooms in or out by up to 20%.
+  - Shearing: Applies random shearing transformations.
+  - Fill Mode: Fills the missing pixels created by these transformations using the nearest pixel values.
+
+## 3. Model Layers
 ```plaintext
 +--------------------------+
 |      Input Layer          |
@@ -141,6 +154,17 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 +--------------------------+
 ```
 
+## 4. Compilation and Training
+- Optimizer: The model is compiled using the Adam optimizer, which adapts the learning rate and accelerates convergence.
+- Loss Function: The sparse categorical crossentropy loss function is used because this is a multi-class classification problem.
+- Metrics: The model tracks accuracy during training and validation.
+- Training: The model is trained for 30 epochs with a batch size of 32 using the augmented dataset. The validation set is the unmodified test dataset.
+
+## 5. Results
+- The Convolutional Neural Network (CNN) model for digit recognition is built with the TensorFlow and Keras libraries, scoring around 95% training accuracy and around 98% validation accuracy.
+
+## 6. Model Saving
+- The trained model is saved as mnist_model.h5 for later use in predictions through the Flask backend.
  
 # Installation
 1. **Clone the repository**:
