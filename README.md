@@ -1,6 +1,9 @@
 # Handwritten-Digit-Recognizer
 A web application that recognizes handwritten digits using a deep learning model. Users can either draw digits on a canvas or upload images of handwritten digits for prediction. The application uses a Flask backend and a TensorFlow model for processing.
 
+# Layout
+
+
 # Features
 - **Drawing Canvas**: Users can draw digits directly on a canvas.
 - **Image Upload**: Users can upload images of handwritten digits for prediction.
@@ -36,23 +39,6 @@ A web application that recognizes handwritten digits using a deep learning model
 - Click the Predict button to get the recognized digit.
 - Alternatively, upload an image of a handwritten digit using the provided file input.
 - Use the Clear button to reset the canvas.
-
-
-# Folder Structure
-handwritten-digit-recognizer/
-│
-├── backend/                # Backend files (Requirements, Flask and AI model)
-│   ├── app.py              # Flask backend
-│   ├── model.py  
-│   ├── mnist_model.h5
-│   └── requirements.txt
-│
-└── frontend/               # Frontend files (HTML, CSS, JS)
-    ├── index.html          # Frontend UI
-    ├── style.css           # Styling
-    ├── script.js           # JavaScript for canvas drawing and API calls
-    └── Images/             # Contains the frame image used to surround the drawing canvas
-        └── frame.png       # The frame image file
 
 
 # Future Improvements
