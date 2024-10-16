@@ -66,6 +66,7 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 # CNN Model
 
 ## Model Layers
+```plaintext
 +--------------------------+
 |      Input Layer          |
 |   (28x28x1 grayscale)     |
@@ -138,6 +139,7 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 +--------------------------+
 |    Output (Digits 0-9)    |
 +--------------------------+
+```
 
  
 # Installation
