@@ -1,0 +1,6 @@
+Flask
+Pillow
+tensorflow
+scikit-learn
+opencv-python
+scikit-image
