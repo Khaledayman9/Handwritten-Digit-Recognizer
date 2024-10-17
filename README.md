@@ -61,6 +61,7 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 
 ## Some Unique Test Cases:
 - Certain digits, like 1 and 7, can be difficult to distinguish for both humans and deep learning models. This can lead to ambiguity in predictions, making it challenging to verify the correct input.
+  
 ![Error 4](https://github.com/user-attachments/assets/2505bbb0-288c-44e4-b195-c71e025babb2)
 
 
@@ -175,27 +176,7 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 ## 6. Model Saving
 - The trained model is saved as mnist_model.h5 for later use in predictions through the Flask backend.
  
-# Installation
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Khaledayman9/Handwritten-Digit-Recognizer.git
-   ```
-2. **Navigate to the project directory:**
-   ```bash
-   cd Handwritten-Digit-Recognizer
-   ```
-3. **Navigate to the backend directory:**
-   ```bash
-   cd backend
-   ```
-4. **Install the required Python packages listed in requirements.txt (create a virtual environment if necessary):**
-   ```bash
-   pip install -r requirements.txt
-   ```
-5. **Run the Flask server:**
-   ```bash
-   python app.py
-   ```
+
 
 # Backend
 ## 1. Imports and Initialization
@@ -249,6 +230,29 @@ At the end of the script, the Flask application is run in debug mode. This allow
 if __name__ == '__main__':
     app.run(debug=True)
 ```
+
+
+# Installation
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Khaledayman9/Handwritten-Digit-Recognizer.git
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd Handwritten-Digit-Recognizer
+   ```
+3. **Navigate to the backend directory:**
+   ```bash
+   cd backend
+   ```
+4. **Install the required Python packages listed in requirements.txt (create a virtual environment if necessary):**
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. **Run the Flask server:**
+   ```bash
+   python app.py
+   ```
 
 # Usage
 - Draw a digit on the canvas using your mouse or touch screen.
