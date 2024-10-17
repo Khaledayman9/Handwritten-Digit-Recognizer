@@ -29,31 +29,40 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
 
 ## Drawing Digits and Predicting it:
 
-![Predict](https://github.com/user-attachments/assets/4f1639d5-7a4e-4107-8d4e-824bc0ab87ec)
+![Test 11](https://github.com/user-attachments/assets/917bacac-7528-49ad-ab11-2f34d01d4e6a)
 
-![drawing](https://github.com/user-attachments/assets/a69773de-5754-41f6-9c3c-1d22f38ea765)
+![Test 2](https://github.com/user-attachments/assets/82b7d16b-078a-4154-b755-4a743a606575)
 
-![drawing2](https://github.com/user-attachments/assets/713aff97-0b4f-4eed-b6fd-08daee8ac1e4)
+![test 3](https://github.com/user-attachments/assets/6d0b4c36-3c3f-452d-a711-3256289bc75b)
 
 ## Uploading images and Predicting it:
 
-![Testing 2](https://github.com/user-attachments/assets/4a2fd700-c755-4ff4-8b5a-1202d8501eba)
+![Num test](https://github.com/user-attachments/assets/b84d505e-4be7-4f03-86d7-3b84534d9a85)
 
-![Testing 3](https://github.com/user-attachments/assets/ee32b300-e5f5-45bd-8638-374d9dd41adf)
+![num tes 2](https://github.com/user-attachments/assets/e9d52f9e-1a78-4f2d-81bf-32a368327e07)
 
-![testing 4](https://github.com/user-attachments/assets/23d6e323-6e8b-49dc-8c88-d2f5cdc51d0e)
+![num tes 3](https://github.com/user-attachments/assets/6902513e-4ad6-4f71-8dff-749631613921)
 
 ## Error Handling:
 ### When the user presses predict and a prediction is already displayed:
-![error11](https://github.com/user-attachments/assets/6c23e088-c8c4-4300-970d-1c62b4ff67fb)
+![Error 1](https://github.com/user-attachments/assets/7d67edab-2120-471b-9c8d-dde67d025c19)
+
+
 ### When the user presses clear and the drawing canvas is already clear:
-![error2](https://github.com/user-attachments/assets/c17f127e-37bd-4bbc-9e0c-8b0380904481)
+![Error 2](https://github.com/user-attachments/assets/3f3c2d94-35f9-4baa-bef3-f506e207e286)
+
+
 ### When the user presses predict and the drawing canvas empty and no image uploaded:
-![error3](https://github.com/user-attachments/assets/2824a19c-2dab-4b86-8d90-9f137fc75699)
+![Error 3](https://github.com/user-attachments/assets/550f09dd-ee38-4f17-9e15-46e2a00d3d75)
+
+
+### When the user presses clear, everything is cleared (drawing canvas and uploads):
+![](https://github.com/Khaledayman9/Handwritten-Digit-Recognizer/blob/main/Clear.gif)
 
 ## Some Unique Test Cases:
 - Certain digits, like 1 and 7, can be difficult to distinguish for both humans and deep learning models. This can lead to ambiguity in predictions, making it challenging to verify the correct input.
-![error](https://github.com/user-attachments/assets/1ec8c4cf-9fdd-4845-9efa-729738ad4d22)
+![Error 4](https://github.com/user-attachments/assets/2505bbb0-288c-44e4-b195-c71e025babb2)
+
 
 
 # Features
@@ -187,6 +196,59 @@ The aim of the Handwritten Digit Recognizer application is to provide an intuiti
    ```bash
    python app.py
    ```
+
+# Backend
+## 1. Imports and Initialization
+- Flask: The web framework used to build the application.
+- PIL (Pillow): A Python Imaging Library to handle image processing.
+- NumPy: A library for numerical operations.
+- TensorFlow: A deep learning framework used to load and run the pre-trained model.
+- base64: A module for encoding and decoding data in Base64 format.
+- io: For handling byte streams.
+- skimage (exposure): A module for image processing, specifically to adjust the intensity of images.
+- cv2 (OpenCV): A library for computer vision tasks.
+## 2. Model Loading
+- Loading our trained model (mnist_model.h5) that was trained on the MNIST dataset, which consists of handwritten digits.
+```python
+model = tf.keras.models.load_model('mnist_model.h5')
+```
+## 3. Image Preprocessing Functions
+**Two preprocessing functions are defined to prepare images for digit recognition:**
+- preprocess_image(image):
+  - Converts the uploaded image to grayscale.
+  - Resizes it to the input size expected by the model (28x28 pixels).
+  - Inverts the pixel values (white background becomes black, and vice versa).
+  - Normalizes the pixel values to a range of [0, 1].
+  - Reshapes the image to include the batch dimension.
+- preprocess_uploaded_image(image):
+  - Converts the uploaded image to grayscale.
+  - Applies binary thresholding to create a binary image (black and white).
+  - Checks the percentage of white pixels; if more than 50%, the image is inverted.
+  - Rescales the intensity of pixel values.
+  - Resizes the image to 28x28 pixels.
+  - Normalizes the pixel values.
+  - Reshapes the image to include the batch dimension.
+
+## 4. Flask Routes
+- **/:** Serves the main index.html file from the frontend.
+
+- **/<path:path>:** Serves static files (like CSS and JavaScript) from the frontend directory.
+
+- **/recognize:**
+  - This endpoint is for recognizing digits drawn on the canvas.
+  - It expects a POST request with an image encoded in Base64.
+  - The image is decoded, preprocessed, and passed to the model for prediction.
+  - Returns the predicted digit as a JSON response.
+- **/recognize-upload:**
+  - Similar to the /recognize route but specifically for uploaded images.
+  - Handles the same workflow of decoding, preprocessing, and predicting.
+
+## 5. Running the Application
+At the end of the script, the Flask application is run in debug mode. This allows for easier debugging and development.
+```python
+if __name__ == '__main__':
+    app.run(debug=True)
+```
 
 # Usage
 - Draw a digit on the canvas using your mouse or touch screen.
