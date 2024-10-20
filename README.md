@@ -5,6 +5,9 @@ A web application that recognizes handwritten digits using a deep learning model
 ![](https://github.com/Khaledayman9/Handwritten-Digit-Recognizer/blob/main/Layout.gif)
 
 
+# Live Demo
+[Click here to view the live demo](https://khaledayman9.github.io/Handwritten-Digit-Recognizer)
+
 
 # Aim
 The aim of the Handwritten Digit Recognizer application is to provide an intuitive and efficient tool for users to draw or upload images of handwritten digits and receive accurate predictions using a machine learning model. The application leverages Flask for backend processing and TensorFlow for digit recognition, presenting a user-friendly interface for seamless interaction.
