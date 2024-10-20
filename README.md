@@ -6,6 +6,8 @@ A web application that recognizes handwritten digits using a deep learning model
 
 
 # Live Demo
+This demo showcases only the frontend interface, without the backend logic for digit recognition, as GitHub Pages can only host static content (HTML, CSS, and JavaScript). To see the full functionality with backend processing, please follow the setup instructions to run the app locally or check out the deployed version with backend integration.
+
 [Click here to view the live demo](https://khaledayman9.github.io/Handwritten-Digit-Recognizer)
 
 
